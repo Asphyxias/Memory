@@ -16,6 +16,6 @@ public abstract class ActivitiesModule {
 
     @ActivityScope
     @ContributesAndroidInjector(modules = HomeActivityModule.class)
-    abstract HomeActivity contributeHomeActivitytInjector();
+    abstract HomeActivity contributeMainActivitytInjector();
 
 }

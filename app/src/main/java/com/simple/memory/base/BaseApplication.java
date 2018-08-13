@@ -34,7 +34,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.internal.platform.Platform;
 
-public abstract class BaseApplication extends Application implements HasActivityInjector,
+public class BaseApplication extends Application implements HasActivityInjector,
         HasBroadcastReceiverInjector,
         HasFragmentInjector,
         HasServiceInjector,
@@ -86,7 +86,7 @@ public abstract class BaseApplication extends Application implements HasActivity
         injectApp();
     }
 
-    protected void injectApp(){
+    protected void injectApp() {
         DaggerBaseAppComponent.builder()
                 .appModule(getAppModule())
                 .globalConfigModule(getGlobalConfigModule())

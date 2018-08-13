@@ -8,7 +8,6 @@ import com.simple.memory.module.AppModule;
 import com.simple.memory.module.GlobalConfigModule;
 import com.simple.memory.module.HttpClientModule;
 import com.simple.memory.module.ServiceModule;
-import com.simple.memory.mvp.view.HomeActivity;
 
 import javax.inject.Singleton;
 
@@ -32,9 +31,9 @@ public interface BaseAppComponent {
 
     Gson gson();
 
-    ServiceManager serviceManager();
-
     OkHttpClient okHttpClient();
+
+    ServiceManager serviceManager();
 
     BaseApplication baseApplication();
 
