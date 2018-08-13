@@ -13,6 +13,7 @@ import com.ihsanbal.logging.Level;
 import com.ihsanbal.logging.LoggingInterceptor;
 import com.simple.memory.http.Api;
 import com.simple.memory.http.base.interceptor.HttpRequestHandler;
+import com.simple.memory.injection.component.DaggerBaseAppComponent;
 import com.simple.memory.module.AppModule;
 import com.simple.memory.module.GlobalConfigModule;
 import com.simple.memory.module.HttpClientModule;
@@ -86,13 +87,13 @@ public abstract class BaseApplication extends Application implements HasActivity
     }
 
     protected void injectApp(){
-        DaggerModuleAppComponent.builder()
+        DaggerBaseAppComponent.builder()
                 .appModule(getAppModule())
                 .globalConfigModule(getGlobalConfigModule())
                 .httpClientModule(getHttpClientModule())
                 .serviceModule(getServiceModule())
                 .build()
-                .initDI(this);
+                .inject(this);
     }
 
     protected AppModule getAppModule() {

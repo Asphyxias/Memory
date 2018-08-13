@@ -3,10 +3,12 @@ package com.simple.memory.injection.component;
 import com.google.gson.Gson;
 import com.simple.memory.base.BaseApplication;
 import com.simple.memory.http.service.ServiceManager;
+import com.simple.memory.injection.ActivitiesModule;
 import com.simple.memory.module.AppModule;
 import com.simple.memory.module.GlobalConfigModule;
 import com.simple.memory.module.HttpClientModule;
 import com.simple.memory.module.ServiceModule;
+import com.simple.memory.mvp.view.HomeActivity;
 
 import javax.inject.Singleton;
 
@@ -23,7 +25,8 @@ import okhttp3.OkHttpClient;
         AppModule.class,
         HttpClientModule.class,
         GlobalConfigModule.class,
-        ServiceModule.class
+        ServiceModule.class,
+        ActivitiesModule.class
 })
 public interface BaseAppComponent {
 
