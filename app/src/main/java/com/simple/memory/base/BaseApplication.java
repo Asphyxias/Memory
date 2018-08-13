@@ -7,6 +7,17 @@ import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.ContentProvider;
 
+import com.alibaba.android.arouter.BuildConfig;
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.ihsanbal.logging.Level;
+import com.ihsanbal.logging.LoggingInterceptor;
+import com.simple.memory.http.Api;
+import com.simple.memory.http.base.interceptor.HttpRequestHandler;
+import com.simple.memory.module.AppModule;
+import com.simple.memory.module.GlobalConfigModule;
+import com.simple.memory.module.HttpClientModule;
+import com.simple.memory.module.ServiceModule;
+
 import javax.inject.Inject;
 
 import dagger.android.AndroidInjector;
@@ -17,6 +28,10 @@ import dagger.android.HasContentProviderInjector;
 import dagger.android.HasFragmentInjector;
 import dagger.android.HasServiceInjector;
 import dagger.android.support.HasSupportFragmentInjector;
+import okhttp3.Interceptor;
+import okhttp3.Request;
+import okhttp3.Response;
+import okhttp3.internal.platform.Platform;
 
 public abstract class BaseApplication extends Application implements HasActivityInjector,
         HasBroadcastReceiverInjector,
@@ -47,15 +62,74 @@ public abstract class BaseApplication extends Application implements HasActivity
     @Override
     public void onCreate() {
         super.onCreate();
+        initRouter();
         initDI();
+    }
+
+    /**
+     * 初始化ARouter
+     * <p>
+     * {@link BuildConfig} 决定是否开启调试模式
+     * (如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
+     */
+    protected void initRouter() {
+        if (BuildConfig.DEBUG) {
+            ARouter.openLog();
+            ARouter.openDebug();
+        }
+        ARouter.init(this);
     }
 
     private void initDI() {
         BaseApplication.instance = this;
+        injectApp();
     }
 
+    protected void injectApp(){
+        DaggerModuleAppComponent.builder()
+                .appModule(getAppModule())
+                .globalConfigModule(getGlobalConfigModule())
+                .httpClientModule(getHttpClientModule())
+                .serviceModule(getServiceModule())
+                .build()
+                .initDI(this);
+    }
 
-    // Dependencies Injection by dagger.android
+    protected AppModule getAppModule() {
+        return new AppModule(this);
+    }
+
+    protected GlobalConfigModule getGlobalConfigModule() {
+        return GlobalConfigModule.buidler()
+                .baseurl(Api.BASE_API)
+                .addInterceptor(new LoggingInterceptor.Builder()
+                        .loggable(BuildConfig.DEBUG)
+                        .setLevel(Level.BASIC)
+                        .log(Platform.INFO)
+                        .request("Request")
+                        .response("Response")
+                        .build())
+                .globeHttpHandler(new HttpRequestHandler() {
+                    @Override
+                    public Response onHttpResultResponse(String httpResult, Interceptor.Chain chain, Response response) {
+                        return response;
+                    }
+
+                    @Override
+                    public Request onHttpRequestBefore(Interceptor.Chain chain, Request request) {
+                        return request;
+                    }
+                })
+                .build();
+    }
+
+    protected HttpClientModule getHttpClientModule() {
+        return new HttpClientModule();
+    }
+
+    protected ServiceModule getServiceModule() {
+        return new ServiceModule();
+    }
 
     @Override
     public AndroidInjector<Activity> activityInjector() {
