@@ -11,7 +11,6 @@ import org.jetbrains.annotations.NotNull;
  * Any Presenter should implement {@link IPresenter}, ensure that IPresenter is
  * {@link LifecycleObserver}, observer the {@link BaseActivity} or {@link BaseFragment} lifecycle change.
  * <p>
- * Created by qingmei2 on 2017/8/14.
  */
 public interface IPresenter extends LifecycleObserver {
 

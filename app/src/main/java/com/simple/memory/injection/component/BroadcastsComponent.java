@@ -6,10 +6,6 @@ import dagger.Subcomponent;
 import dagger.android.AndroidInjectionModule;
 import dagger.android.AndroidInjector;
 
-/**
- * Created by QingMei on 2017/10/31.
- * desc:
- */
 @Subcomponent(modules = {
         AndroidInjectionModule.class,
 })

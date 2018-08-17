@@ -1,7 +1,5 @@
 package com.simple.memory.injection.activity;
 
-
-
 import com.simple.memory.mvp.contract.HomeContract;
 import com.simple.memory.mvp.modle.HomeModel;
 import com.simple.memory.mvp.view.HomeActivity;

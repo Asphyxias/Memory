@@ -9,10 +9,6 @@ import com.simple.memory.base.BaseApplication;
 
 import java.lang.reflect.Field;
 
-/**
- * Created by sashiro on 2017/6/5.
- */
-
 public class ScreenUtil {
 
     private ScreenUtil() {

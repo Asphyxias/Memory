@@ -10,9 +10,6 @@ import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 
-/**
- * Created by Glooory on 17/5/15.
- */
 @Singleton
 public class RequestInterceptor implements Interceptor {
 

@@ -12,10 +12,6 @@ import java.util.Map;
 import java.util.Set;
 
 
-/**
- * Created by TaoPu on 17/6/23.
- */
-
 public class SPUtils {
     private static final String SP_NAME_DEFAULT = "sp_name_default";
 

@@ -15,10 +15,6 @@ import dagger.Provides;
 import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
 
-
-/**
- * Created by Glooory on 17/5/15.
- */
 @Module
 public class GlobalConfigModule {
 

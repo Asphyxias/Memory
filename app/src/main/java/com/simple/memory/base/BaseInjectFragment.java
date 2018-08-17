@@ -10,7 +10,6 @@ import dagger.android.support.AndroidSupportInjection;
  * <p>
  * Dependency injection that developers should be concerned about is the *Dagger* and the *ARouter*
  * <p>
- * Created by QingMei on 2017/12/27.
  */
 
 public abstract class BaseInjectFragment extends Fragment {
