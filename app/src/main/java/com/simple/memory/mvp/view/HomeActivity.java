@@ -11,7 +11,7 @@ public class HomeActivity extends BaseActivity<HomePresent, ActivityHomeBinding>
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_main;
+        return R.layout.activity_home;
     }
 
     @Override
