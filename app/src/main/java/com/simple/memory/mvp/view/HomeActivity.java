@@ -21,7 +21,6 @@ public class HomeActivity extends BaseActivity<HomePresent, ActivityHomeBinding>
 
     @Override
     protected void initData() {
-
     }
 
     @Override

@@ -4,11 +4,6 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
-/**
- * Created by QingMei on 2017/6/19.
- * desc:
- */
-
 public class NetUtil {
 
     public static final int NET_CNNT_BAIDU_OK = 1; // NetworkAvailable

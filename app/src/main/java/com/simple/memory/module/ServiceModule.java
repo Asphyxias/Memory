@@ -8,10 +8,6 @@ import dagger.Module;
 import dagger.Provides;
 import retrofit2.Retrofit;
 
-/**
- * Created by QingMei on 2017/8/15.
- * desc:
- */
 @Module
 public class ServiceModule {
 

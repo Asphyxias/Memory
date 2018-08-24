@@ -1,23 +1,27 @@
-package com.simple.memory
+package com.simple.memory.mvp.view
 
-import android.os.Bundle
+import android.annotation.SuppressLint
 import android.support.design.widget.FloatingActionButton
-import android.support.design.widget.Snackbar
-import android.view.View
 import android.support.design.widget.NavigationView
+import android.support.design.widget.Snackbar
 import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
-import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import com.simple.memory.R
+import com.simple.memory.base.BaseActivity
+import com.simple.memory.databinding.ActivityMainBinding
+import com.simple.memory.mvp.contract.MainContract
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+@SuppressLint("Registered")
+class MainActivity : BaseActivity<MainContract.Present, ActivityMainBinding>(), NavigationView.OnNavigationItemSelectedListener {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+    override fun getLayoutId(): Int = R.layout.activity_mainnnn
+
+    override fun initView() {
         val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
         setSupportActionBar(toolbar)
 
@@ -35,6 +39,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         val navigationView = findViewById<View>(R.id.nav_view) as NavigationView
         navigationView.setNavigationItemSelectedListener(this)
+    }
+
+    override fun initData() {
+
     }
 
     override fun onBackPressed() {
@@ -69,18 +77,25 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // Handle navigation view item clicks here.
         val id = item.itemId
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        when (id) {
+            R.id.nav_camera -> {
+                // Handle the camera action
+            }
+            R.id.nav_gallery -> {
 
-        } else if (id == R.id.nav_slideshow) {
+            }
+            R.id.nav_slideshow -> {
 
-        } else if (id == R.id.nav_manage) {
+            }
+            R.id.nav_manage -> {
 
-        } else if (id == R.id.nav_share) {
+            }
+            R.id.nav_share -> {
 
-        } else if (id == R.id.nav_send) {
+            }
+            R.id.nav_send -> {
 
+            }
         }
 
         val drawer = findViewById<View>(R.id.drawer_layout) as DrawerLayout
