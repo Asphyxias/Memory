@@ -1,6 +1,6 @@
 package com.simple.memory.mvp.view
 
-import android.annotation.SuppressLint
+
 import android.support.design.widget.FloatingActionButton
 import android.support.design.widget.NavigationView
 import android.support.design.widget.Snackbar
@@ -13,11 +13,13 @@ import android.view.MenuItem
 import android.view.View
 import com.simple.memory.R
 import com.simple.memory.base.BaseActivity
+import com.simple.memory.databinding.ActivityHomeBinding
 import com.simple.memory.databinding.ActivityMainBinding
-import com.simple.memory.mvp.contract.MainContract
+import com.simple.memory.mvp.contract.HomeContract
+import com.simple.memory.mvp.present.HomePresent
 
-@SuppressLint("Registered")
-class MainActivity : BaseActivity<MainContract.Present, ActivityMainBinding>(),MainContract.View, NavigationView.OnNavigationItemSelectedListener {
+class HomeActivity : BaseActivity<HomePresent, ActivityMainBinding>(), HomeContract.View, NavigationView.OnNavigationItemSelectedListener {
+
 
     override fun getLayoutId(): Int = R.layout.activity_mainnnn
 
