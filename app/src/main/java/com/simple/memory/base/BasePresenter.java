@@ -4,6 +4,7 @@ import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.LifecycleOwner;
 import android.support.annotation.CallSuper;
 import android.support.annotation.MainThread;
+
 import com.simple.memory.util.RxLifecycleUtils;
 import com.uber.autodispose.AutoDisposeConverter;
 
@@ -11,15 +12,15 @@ import org.jetbrains.annotations.NotNull;
 
 public class BasePresenter<V extends IView, M extends IModel> implements IPresenter {
 
-    protected V mRootView;
+    protected V view;
 
-    protected M mModel;
+    protected M model;
 
     private LifecycleOwner lifecycleOwner;
 
     public BasePresenter(V rootView, M model) {
-        this.mRootView = rootView;
-        this.mModel = model;
+        this.view = rootView;
+        this.model = model;
     }
 
     protected <T> AutoDisposeConverter<T> bindLifecycle() {
@@ -79,11 +80,11 @@ public class BasePresenter<V extends IView, M extends IModel> implements IPresen
     @CallSuper
     @MainThread
     public void onDestroy(@NotNull LifecycleOwner owner) {
-        if (mModel != null) {
-            mModel.onDestroy();
-            this.mModel = null;
+        if (model != null) {
+            model.onDestroy();
+            this.model = null;
         }
-        this.mRootView = null;
+        this.view = null;
     }
 
 }

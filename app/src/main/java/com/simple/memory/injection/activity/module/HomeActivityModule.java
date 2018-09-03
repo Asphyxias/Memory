@@ -1,4 +1,4 @@
-package com.simple.memory.injection.activity;
+package com.simple.memory.injection.activity.module;
 
 import com.simple.memory.mvp.contract.HomeContract;
 import com.simple.memory.mvp.modle.HomeModel;

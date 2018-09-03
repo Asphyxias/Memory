@@ -6,9 +6,13 @@ import com.simple.memory.base.IView
 
 interface MainContract {
 
-    interface Present : IPresenter
+    interface Present : IPresenter{
+        fun setButtonListener(s : String)
+    }
 
-    interface View : IView
+    interface View : IView{
+        fun showToast(s : String)
+    }
 
     interface Model : IModel
 }
