@@ -2,9 +2,11 @@ package com.simple.memory.injection;
 
 import com.simple.memory.injection.activity.module.HomeActivityModule;
 import com.simple.memory.injection.activity.module.MainActivityModule;
+import com.simple.memory.injection.activity.module.SearchActivityModule;
 import com.simple.memory.injection.component.BaseActivityComponent;
 import com.simple.memory.mvp.view.HomeActivity;
 import com.simple.memory.mvp.view.MainActivity;
+import com.simple.memory.mvp.view.SearchActivity;
 import com.simple.memory.scope.ActivityScope;
 
 import dagger.Module;
@@ -21,5 +23,9 @@ public abstract class ActivitiesModule {
     @ActivityScope
     @ContributesAndroidInjector(modules = MainActivityModule.class)
     abstract MainActivity contributeMainActivitytInjector();
+
+    @ActivityScope
+    @ContributesAndroidInjector(modules = SearchActivityModule.class)
+    abstract SearchActivity contributeSearchActivityInjector();
 
 }

@@ -1,6 +1,7 @@
 package com.simple.memory.mvp.view
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.support.design.widget.FloatingActionButton
 import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
@@ -106,6 +107,6 @@ class MainActivity : BaseActivity<MainPresent, ActivityMainBinding>(),MainContra
 
 
     override fun showToast(s: String) {
-        Toast.makeText(this, s, Toast.LENGTH_LONG).show()
+        startActivity(Intent(this, SearchActivity::class.java))
     }
 }
