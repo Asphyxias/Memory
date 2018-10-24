@@ -14,9 +14,9 @@
         tools:context=".mvp.view.MainActivity"
         tools:showIn="@layout/app_bar_main">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <com.simple.memory.wigdet.RainyView
+            android:layout_width="200dp"
+            android:layout_height="300dp"
             android:text="Hello World!"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"

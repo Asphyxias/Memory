@@ -17,9 +17,10 @@ import com.simple.memory.base.BaseActivity
 import com.simple.memory.databinding.ActivityMainBinding
 import com.simple.memory.mvp.contract.MainContract
 import com.simple.memory.mvp.present.MainPresent
+import kotlinx.android.synthetic.main.content_main.*
 
 @SuppressLint("Registered")
-class MainActivity : BaseActivity<MainPresent, ActivityMainBinding>(),MainContract.View, NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : BaseActivity<MainPresent, ActivityMainBinding>(), MainContract.View, NavigationView.OnNavigationItemSelectedListener {
 
 
     override fun getLayoutId(): Int = R.layout.activity_mainnnn
@@ -41,6 +42,8 @@ class MainActivity : BaseActivity<MainPresent, ActivityMainBinding>(),MainContra
 
         val navigationView = findViewById<View>(R.id.nav_view) as NavigationView
         navigationView.setNavigationItemSelectedListener(this)
+
+        //rainyView.start()
     }
 
     override fun initData() {
